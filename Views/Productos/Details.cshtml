@@ -1,0 +1,66 @@
+﻿@model ElCuernoVip.Models.Productos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Productos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Producto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Producto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion_Producto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion_Producto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Urlfoto_Producto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Urlfoto_Producto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio_Producto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio_Producto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorias.Categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorias.Categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tamanos.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tamanos.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Producto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

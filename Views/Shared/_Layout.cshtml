@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
+
+    <link rel="stylesheet" href="../fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="../fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+           <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                <img src="~/images/cuernoLogo.png"  alt="CuernoLoco" width="50px" height="50px"/>
+           </a>
+
+          
+            <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                <ul class="navbar-nav ml-auto pl-lg-5 pl-0" >
+                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+                    <li>@Html.ActionLink("Clientes", "Index", "Clientes", new { area = "" }, new { @class = "nav-link" })</li>
+
+                    <li>@Html.ActionLink("Categorias", "Index", "categorias", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Cuentas", "Index", "Cuentas", new { area = "" }, new { @class = "nav-link" })</li>
+
+                    <li>@Html.ActionLink("Detalle cuentas", "Index", "DetalleCuentas", new { area = "" }, new { @class = "nav-link" })</li>
+
+                    <li>@Html.ActionLink("Categorias", "Index", "categorias", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        
+        @Html.Partial("_SweetAlert")
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

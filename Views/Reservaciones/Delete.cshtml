@@ -1,0 +1,72 @@
+﻿@model ElCuernoVip.Models.Reservaciones
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Reservaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Reservacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Reservacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Horario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Horario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Num_Personas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num_Personas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.Nombre_Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.Nombre_Cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mesas.Codigo_Mesa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mesas.Codigo_Mesa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

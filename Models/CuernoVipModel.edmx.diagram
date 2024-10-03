@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="11bb17b2f23e46088868ed8fc1d2f4c7" Name="Diagram1">
+        <EntityTypeShape EntityType="VentaCuernoModel.Categorias" Width="1.5" PointX="3.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Clientes" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Cuentas" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Detalles_Cuentas" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Empleados" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Mesas" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Productos" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Reservaciones" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Roles" Width="1.5" PointX="1.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Tamanos" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaCuernoModel.Usuarios" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Productos__Categ__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Cuentas__Cliente__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Reservaci__Clien__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK_Usuario_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Cuentas__Emplead__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Cuentas__Mesa_Id__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Cuentas__Reserva__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Detalles___Venta__1F98B2C1" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Detalles___Produ__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Empleados__Rol_I__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK_Usuario_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Reservaci__Mesa___07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaCuernoModel.FK__Productos__Taman__4BAC3F29" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

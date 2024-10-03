@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{69E50B58-6B1F-4339-A563-BCFB819BB423}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ElCuernoVip</RootNamespace>
+    <AssemblyName>ElCuernoVip</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\CuentasController.cs" />
+    <Compile Include="Controllers\Detalles_CuentasController.cs" />
+    <Compile Include="Controllers\EmpleadosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MesasController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\ReservacionesController.cs" />
+    <Compile Include="Controllers\TamanosController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Categorias.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Clientes.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cuentas.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CuernoVipModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuernoVipModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CuernoVipModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CuernoVipModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuernoVipModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Detalles_Cuentas.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Empleados.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\Mesas.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Productos.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reservaciones.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Roles.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tamanos.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuarios.cs">
+      <DependentUpon>CuernoVipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\SweetAlert.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\owl.carousel.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\flaticon\backup.txt" />
+    <Content Include="fonts\flaticon\font\flaticon.css" />
+    <Content Include="fonts\flaticon\font\flaticon.html" />
+    <Content Include="fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="fonts\flaticon\font\_flaticon.css" />
+    <Content Include="fonts\fontawesome\css\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\ionicons\cheatsheet.html" />
+    <Content Include="fonts\ionicons\css\ionicons.css" />
+    <Content Include="fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\banner_text_1.png" />
+    <Content Include="images\big_image_1.jpg" />
+    <Content Include="images\big_image_2.jpg" />
+    <Content Include="images\cuernoLogo.png" />
+    <Content Include="images\g8.jpg" />
+    <Content Include="images\g2.jpg" />
+    <Content Include="images\img_1.jpg" />
+    <Content Include="images\img_2.jpg" />
+    <Content Include="images\img_3.jpg" />
+    <Content Include="images\img_4.jpg" />
+    <Content Include="images\img_5.jpg" />
+    <Content Include="images\img_6.jpg" />
+    <Content Include="images\img_7.jpg" />
+    <Content Include="images\img_8.jpg" />
+    <Content Include="images\person_1.jpg" />
+    <Content Include="images\person_2.jpg" />
+    <Content Include="images\person_3.jpg" />
+    <Content Include="images\person_4.jpg" />
+    <Content Include="images\person_5.jpg" />
+    <Content Include="images\person_6.jpg" />
+    <Content Include="images\CL.png" />
+    <Content Include="Models\CuernoVipModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CuernoVipModel.edmx</DependentUpon>
+      <LastGenOutput>CuernoVipModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CuernoVipModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CuernoVipModel.edmx</DependentUpon>
+      <LastGenOutput>CuernoVipModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\CuernoVipModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CuernoVipModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CuernoVipModel.edmx.diagram">
+      <DependentUpon>CuernoVipModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="fonts\.DS_Store" />
+    <Content Include="fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="fonts\flaticon\license\license.pdf" />
+    <Content Include="fonts\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\ionicons\.DS_Store" />
+    <Content Include="fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="images\.DS_Store" />
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Categorias\Create.cshtml" />
+    <Content Include="Views\Categorias\Delete.cshtml" />
+    <Content Include="Views\Categorias\Details.cshtml" />
+    <Content Include="Views\Categorias\Edit.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Cuentas\Create.cshtml" />
+    <Content Include="Views\Cuentas\Delete.cshtml" />
+    <Content Include="Views\Cuentas\Details.cshtml" />
+    <Content Include="Views\Cuentas\Edit.cshtml" />
+    <Content Include="Views\Cuentas\Index.cshtml" />
+    <Content Include="Views\Detalles_Cuentas\Create.cshtml" />
+    <Content Include="Views\Detalles_Cuentas\Delete.cshtml" />
+    <Content Include="Views\Detalles_Cuentas\Details.cshtml" />
+    <Content Include="Views\Detalles_Cuentas\Edit.cshtml" />
+    <Content Include="Views\Detalles_Cuentas\Index.cshtml" />
+    <Content Include="Views\Empleados\Create.cshtml" />
+    <Content Include="Views\Empleados\Delete.cshtml" />
+    <Content Include="Views\Empleados\Details.cshtml" />
+    <Content Include="Views\Empleados\Edit.cshtml" />
+    <Content Include="Views\Empleados\Index.cshtml" />
+    <Content Include="Views\Mesas\Create.cshtml" />
+    <Content Include="Views\Mesas\Delete.cshtml" />
+    <Content Include="Views\Mesas\Details.cshtml" />
+    <Content Include="Views\Mesas\Edit.cshtml" />
+    <Content Include="Views\Mesas\Index.cshtml" />
+    <Content Include="Views\Productos\Create.cshtml" />
+    <Content Include="Views\Productos\Delete.cshtml" />
+    <Content Include="Views\Productos\Details.cshtml" />
+    <Content Include="Views\Productos\Edit.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
+    <Content Include="Views\Reservaciones\Create.cshtml" />
+    <Content Include="Views\Reservaciones\Delete.cshtml" />
+    <Content Include="Views\Reservaciones\Details.cshtml" />
+    <Content Include="Views\Reservaciones\Edit.cshtml" />
+    <Content Include="Views\Reservaciones\Index.cshtml" />
+    <Content Include="Views\Tamanos\Create.cshtml" />
+    <Content Include="Views\Tamanos\Delete.cshtml" />
+    <Content Include="Views\Tamanos\Details.cshtml" />
+    <Content Include="Views\Tamanos\Edit.cshtml" />
+    <Content Include="Views\Tamanos\Index.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="scss\.DS_Store" />
+    <Content Include="scss\bootstrap-grid.scss" />
+    <Content Include="scss\bootstrap-reboot.scss" />
+    <Content Include="scss\bootstrap.scss" />
+    <Content Include="scss\mixins\_alert.scss" />
+    <Content Include="scss\mixins\_background-variant.scss" />
+    <Content Include="scss\mixins\_badge.scss" />
+    <Content Include="scss\mixins\_border-radius.scss" />
+    <Content Include="scss\mixins\_box-shadow.scss" />
+    <Content Include="scss\mixins\_breakpoints.scss" />
+    <Content Include="scss\mixins\_buttons.scss" />
+    <Content Include="scss\mixins\_caret.scss" />
+    <Content Include="scss\mixins\_clearfix.scss" />
+    <Content Include="scss\mixins\_float.scss" />
+    <Content Include="scss\mixins\_forms.scss" />
+    <Content Include="scss\mixins\_gradients.scss" />
+    <Content Include="scss\mixins\_grid-framework.scss" />
+    <Content Include="scss\mixins\_grid.scss" />
+    <Content Include="scss\mixins\_hover.scss" />
+    <Content Include="scss\mixins\_image.scss" />
+    <Content Include="scss\mixins\_list-group.scss" />
+    <Content Include="scss\mixins\_lists.scss" />
+    <Content Include="scss\mixins\_nav-divider.scss" />
+    <Content Include="scss\mixins\_navbar-align.scss" />
+    <Content Include="scss\mixins\_pagination.scss" />
+    <Content Include="scss\mixins\_reset-text.scss" />
+    <Content Include="scss\mixins\_resize.scss" />
+    <Content Include="scss\mixins\_screen-reader.scss" />
+    <Content Include="scss\mixins\_size.scss" />
+    <Content Include="scss\mixins\_table-row.scss" />
+    <Content Include="scss\mixins\_text-emphasis.scss" />
+    <Content Include="scss\mixins\_text-hide.scss" />
+    <Content Include="scss\mixins\_text-truncate.scss" />
+    <Content Include="scss\mixins\_transition.scss" />
+    <Content Include="scss\mixins\_visibility.scss" />
+    <Content Include="scss\style.scss" />
+    <Content Include="scss\utilities\_align.scss" />
+    <Content Include="scss\utilities\_background.scss" />
+    <Content Include="scss\utilities\_borders.scss" />
+    <Content Include="scss\utilities\_clearfix.scss" />
+    <Content Include="scss\utilities\_display.scss" />
+    <Content Include="scss\utilities\_embed.scss" />
+    <Content Include="scss\utilities\_flex.scss" />
+    <Content Include="scss\utilities\_float.scss" />
+    <Content Include="scss\utilities\_position.scss" />
+    <Content Include="scss\utilities\_screenreaders.scss" />
+    <Content Include="scss\utilities\_sizing.scss" />
+    <Content Include="scss\utilities\_spacing.scss" />
+    <Content Include="scss\utilities\_text.scss" />
+    <Content Include="scss\utilities\_visibility.scss" />
+    <Content Include="scss\_alert.scss" />
+    <Content Include="scss\_badge.scss" />
+    <Content Include="scss\_breadcrumb.scss" />
+    <Content Include="scss\_button-group.scss" />
+    <Content Include="scss\_buttons.scss" />
+    <Content Include="scss\_card.scss" />
+    <Content Include="scss\_carousel.scss" />
+    <Content Include="scss\_close.scss" />
+    <Content Include="scss\_code.scss" />
+    <Content Include="scss\_custom-forms.scss" />
+    <Content Include="scss\_custom.scss" />
+    <Content Include="scss\_dropdown.scss" />
+    <Content Include="scss\_forms.scss" />
+    <Content Include="scss\_functions.scss" />
+    <Content Include="scss\_grid.scss" />
+    <Content Include="scss\_images.scss" />
+    <Content Include="scss\_input-group.scss" />
+    <Content Include="scss\_jumbotron.scss" />
+    <Content Include="scss\_list-group.scss" />
+    <Content Include="scss\_media.scss" />
+    <Content Include="scss\_mixins.scss" />
+    <Content Include="scss\_modal.scss" />
+    <Content Include="scss\_nav.scss" />
+    <Content Include="scss\_navbar.scss" />
+    <Content Include="scss\_pagination.scss" />
+    <Content Include="scss\_popover.scss" />
+    <Content Include="scss\_print.scss" />
+    <Content Include="scss\_progress.scss" />
+    <Content Include="scss\_reboot.scss" />
+    <Content Include="scss\_root.scss" />
+    <Content Include="scss\_tables.scss" />
+    <Content Include="scss\_tooltip.scss" />
+    <Content Include="scss\_transitions.scss" />
+    <Content Include="scss\_type.scss" />
+    <Content Include="scss\_utilities.scss" />
+    <Content Include="scss\_variables.scss" />
+    <Content Include="Views\Shared\_SweetAlert.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="DTO1\DTO.csproj">
+      <Project>{CB7E40BA-4E96-4870-92BC-463F8F0C47E0}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55895</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55895/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,50 @@
+﻿@model ElCuernoVip.Models.Detalles_Cuentas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Detalles_Cuentas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subtotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subtotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cuentas.Id_Cuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cuentas.Id_Cuenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Productos.Nombre_Producto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Productos.Nombre_Producto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Detalle_Cuenta }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

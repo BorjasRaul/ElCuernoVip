@@ -1,0 +1,26 @@
+﻿@model ElCuernoVip.Models.Usuarios
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+
+    @Html.AntiForgeryToken()/// genera un token unico para el formulario el cual se envia como un campo oculto dentro de la peticion
+    /// sirve para evitar la falsificacion de datos y validar que la peticion sea valida desde el sistema que se
+    /// envia y lo recibe creando asi una mejor validacion en cuanto a la seguridad el acceso alos sistemas
+    <div class="form-group">
+        @Html.LabelFor(m => m.Username)
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+}
+

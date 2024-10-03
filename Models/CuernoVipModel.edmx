@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VentaCuernoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="Id_Categoria" />
+          </Key>
+          <Property Name="Id_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Categoria" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id_Cliente" />
+          </Key>
+          <Property Name="Id_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Cliente" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apeido_P_Cliente" Type="varchar" MaxLength="50" />
+          <Property Name="Apeido_M_Cliente" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Cuentas">
+          <Key>
+            <PropertyRef Name="Id_Cuenta" />
+          </Key>
+          <Property Name="Id_Cuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mesa_Id" Type="int" />
+          <Property Name="Cliente_Id" Type="int" />
+          <Property Name="Reservacion_Id" Type="int" />
+          <Property Name="Empleado_Id" Type="int" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Es_Reservacion" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Detalles_Cuentas">
+          <Key>
+            <PropertyRef Name="Id_Detalle_Cuenta" />
+          </Key>
+          <Property Name="Id_Detalle_Cuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venta_Id" Type="int" />
+          <Property Name="Producto_Id" Type="int" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Subtotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Id_Empleado" />
+          </Key>
+          <Property Name="Id_Empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Empleado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apeido_P_Empleado" Type="varchar" MaxLength="50" />
+          <Property Name="Apeido_M_Empleado" Type="varchar" MaxLength="50" />
+          <Property Name="Email_Empleado" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono_Empleado" Type="varchar" MaxLength="15" />
+          <Property Name="Rol_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Mesas">
+          <Key>
+            <PropertyRef Name="ID_Mesa" />
+          </Key>
+          <Property Name="ID_Mesa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_Mesa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Capacidad" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Producto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion_Producto" Type="text" />
+          <Property Name="Categoria_Id" Type="int" />
+          <Property Name="Tamano_Id" Type="int" />
+          <Property Name="Urlfoto_Producto" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Precio_Producto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reservaciones">
+          <Key>
+            <PropertyRef Name="Id_Reservacion" />
+          </Key>
+          <Property Name="Id_Reservacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mesa_Id" Type="int" />
+          <Property Name="Cliente_Id" Type="int" />
+          <Property Name="Fecha_Reservacion" Type="date" />
+          <Property Name="Horario" Type="time" Precision="7" />
+          <Property Name="Num_Personas" Type="int" />
+          <Property Name="Estatus" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id_Rol" />
+          </Key>
+          <Property Name="Id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pago" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tamanos">
+          <Key>
+            <PropertyRef Name="Id_Tamano" />
+          </Key>
+          <Property Name="Id_Tamano" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Empleado_Id" Type="int" />
+          <Property Name="Cliente_Id" Type="int" />
+        </EntityType>
+        <Association Name="FK__Cuentas__Cliente__14270015">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Cliente_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cuentas__Emplead__160F4887">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Id_Empleado" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Empleado_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cuentas__Mesa_Id__1332DBDC">
+          <End Role="Mesas" Type="Self.Mesas" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesas">
+              <PropertyRef Name="ID_Mesa" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Mesa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cuentas__Reserva__151B244E">
+          <End Role="Reservaciones" Type="Self.Reservaciones" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservaciones">
+              <PropertyRef Name="Id_Reservacion" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Reservacion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalles___Produ__1EA48E88">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Detalles_Cuentas" Type="Self.Detalles_Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="ID_Producto" />
+            </Principal>
+            <Dependent Role="Detalles_Cuentas">
+              <PropertyRef Name="Producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalles___Venta__1F98B2C1">
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="0..1" />
+          <End Role="Detalles_Cuentas" Type="Self.Detalles_Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cuentas">
+              <PropertyRef Name="Id_Cuenta" />
+            </Principal>
+            <Dependent Role="Detalles_Cuentas">
+              <PropertyRef Name="Venta_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__Rol_I__59063A47">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id_Rol" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="Rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Categ__4AB81AF0">
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="Id_Categoria" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="Categoria_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Taman__4BAC3F29">
+          <End Role="Tamanos" Type="Self.Tamanos" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tamanos">
+              <PropertyRef Name="Id_Tamano" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="Tamano_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservaci__Clien__08B54D69">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Reservaciones" Type="Self.Reservaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="Reservaciones">
+              <PropertyRef Name="Cliente_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservaci__Mesa___07C12930">
+          <End Role="Mesas" Type="Self.Mesas" Multiplicity="0..1" />
+          <End Role="Reservaciones" Type="Self.Reservaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesas">
+              <PropertyRef Name="ID_Mesa" />
+            </Principal>
+            <Dependent Role="Reservaciones">
+              <PropertyRef Name="Mesa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Cliente_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Empleado">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Id_Empleado" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Empleado_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VentaCuernoModelStoreContainer">
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cuentas" EntityType="Self.Cuentas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detalles_Cuentas" EntityType="Self.Detalles_Cuentas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mesas" EntityType="Self.Mesas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservaciones" EntityType="Self.Reservaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tamanos" EntityType="Self.Tamanos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cuentas__Cliente__14270015" Association="Self.FK__Cuentas__Cliente__14270015">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cuentas__Emplead__160F4887" Association="Self.FK__Cuentas__Emplead__160F4887">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cuentas__Mesa_Id__1332DBDC" Association="Self.FK__Cuentas__Mesa_Id__1332DBDC">
+            <End Role="Mesas" EntitySet="Mesas" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cuentas__Reserva__151B244E" Association="Self.FK__Cuentas__Reserva__151B244E">
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalles___Produ__1EA48E88" Association="Self.FK__Detalles___Produ__1EA48E88">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Detalles_Cuentas" EntitySet="Detalles_Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalles___Venta__1F98B2C1" Association="Self.FK__Detalles___Venta__1F98B2C1">
+            <End Role="Cuentas" EntitySet="Cuentas" />
+            <End Role="Detalles_Cuentas" EntitySet="Detalles_Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__Rol_I__59063A47" Association="Self.FK__Empleados__Rol_I__59063A47">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Categ__4AB81AF0" Association="Self.FK__Productos__Categ__4AB81AF0">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Taman__4BAC3F29" Association="Self.FK__Productos__Taman__4BAC3F29">
+            <End Role="Tamanos" EntitySet="Tamanos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservaci__Clien__08B54D69" Association="Self.FK__Reservaci__Clien__08B54D69">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservaci__Mesa___07C12930" Association="Self.FK__Reservaci__Mesa___07C12930">
+            <End Role="Mesas" EntitySet="Mesas" />
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Cliente" Association="Self.FK_Usuario_Cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Empleado" Association="Self.FK_Usuario_Empleado">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VentaCuernoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="Id_Categoria" />
+          </Key>
+          <Property Name="Id_Categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__Categ__4AB81AF0" FromRole="Categorias" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id_Cliente" />
+          </Key>
+          <Property Name="Id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apeido_P_Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apeido_M_Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cuentas" Relationship="Self.FK__Cuentas__Cliente__14270015" FromRole="Clientes" ToRole="Cuentas" />
+          <NavigationProperty Name="Reservaciones" Relationship="Self.FK__Reservaci__Clien__08B54D69" FromRole="Clientes" ToRole="Reservaciones" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuario_Cliente" FromRole="Clientes" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Cuentas">
+          <Key>
+            <PropertyRef Name="Id_Cuenta" />
+          </Key>
+          <Property Name="Id_Cuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mesa_Id" Type="Int32" />
+          <Property Name="Cliente_Id" Type="Int32" />
+          <Property Name="Reservacion_Id" Type="Int32" />
+          <Property Name="Empleado_Id" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Es_Reservacion" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK__Cuentas__Cliente__14270015" FromRole="Cuentas" ToRole="Clientes" />
+          <NavigationProperty Name="Empleados" Relationship="Self.FK__Cuentas__Emplead__160F4887" FromRole="Cuentas" ToRole="Empleados" />
+          <NavigationProperty Name="Mesas" Relationship="Self.FK__Cuentas__Mesa_Id__1332DBDC" FromRole="Cuentas" ToRole="Mesas" />
+          <NavigationProperty Name="Reservaciones" Relationship="Self.FK__Cuentas__Reserva__151B244E" FromRole="Cuentas" ToRole="Reservaciones" />
+          <NavigationProperty Name="Detalles_Cuentas" Relationship="Self.FK__Detalles___Venta__1F98B2C1" FromRole="Cuentas" ToRole="Detalles_Cuentas" />
+        </EntityType>
+        <EntityType Name="Detalles_Cuentas">
+          <Key>
+            <PropertyRef Name="Id_Detalle_Cuenta" />
+          </Key>
+          <Property Name="Id_Detalle_Cuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venta_Id" Type="Int32" />
+          <Property Name="Producto_Id" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Cuentas" Relationship="Self.FK__Detalles___Venta__1F98B2C1" FromRole="Detalles_Cuentas" ToRole="Cuentas" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Detalles___Produ__1EA48E88" FromRole="Detalles_Cuentas" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Id_Empleado" />
+          </Key>
+          <Property Name="Id_Empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Empleado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apeido_P_Empleado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apeido_M_Empleado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Empleado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono_Empleado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Rol_Id" Type="Int32" />
+          <NavigationProperty Name="Cuentas" Relationship="Self.FK__Cuentas__Emplead__160F4887" FromRole="Empleados" ToRole="Cuentas" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Empleados__Rol_I__59063A47" FromRole="Empleados" ToRole="Roles" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuario_Empleado" FromRole="Empleados" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Mesas">
+          <Key>
+            <PropertyRef Name="ID_Mesa" />
+          </Key>
+          <Property Name="ID_Mesa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Mesa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Capacidad" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cuentas" Relationship="Self.FK__Cuentas__Mesa_Id__1332DBDC" FromRole="Mesas" ToRole="Cuentas" />
+          <NavigationProperty Name="Reservaciones" Relationship="Self.FK__Reservaci__Mesa___07C12930" FromRole="Mesas" ToRole="Reservaciones" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Producto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion_Producto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Categoria_Id" Type="Int32" />
+          <Property Name="Tamano_Id" Type="Int32" />
+          <Property Name="Urlfoto_Producto" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Precio_Producto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Categorias" Relationship="Self.FK__Productos__Categ__4AB81AF0" FromRole="Productos" ToRole="Categorias" />
+          <NavigationProperty Name="Detalles_Cuentas" Relationship="Self.FK__Detalles___Produ__1EA48E88" FromRole="Productos" ToRole="Detalles_Cuentas" />
+          <NavigationProperty Name="Tamanos" Relationship="Self.FK__Productos__Taman__4BAC3F29" FromRole="Productos" ToRole="Tamanos" />
+        </EntityType>
+        <EntityType Name="Reservaciones">
+          <Key>
+            <PropertyRef Name="Id_Reservacion" />
+          </Key>
+          <Property Name="Id_Reservacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mesa_Id" Type="Int32" />
+          <Property Name="Cliente_Id" Type="Int32" />
+          <Property Name="Fecha_Reservacion" Type="DateTime" Precision="0" />
+          <Property Name="Horario" Type="Time" Precision="7" />
+          <Property Name="Num_Personas" Type="Int32" />
+          <Property Name="Estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK__Reservaci__Clien__08B54D69" FromRole="Reservaciones" ToRole="Clientes" />
+          <NavigationProperty Name="Cuentas" Relationship="Self.FK__Cuentas__Reserva__151B244E" FromRole="Reservaciones" ToRole="Cuentas" />
+          <NavigationProperty Name="Mesas" Relationship="Self.FK__Reservaci__Mesa___07C12930" FromRole="Reservaciones" ToRole="Mesas" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id_Rol" />
+          </Key>
+          <Property Name="Id_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pago" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Empleados" Relationship="Self.FK__Empleados__Rol_I__59063A47" FromRole="Roles" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Tamanos">
+          <Key>
+            <PropertyRef Name="Id_Tamano" />
+          </Key>
+          <Property Name="Id_Tamano" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__Taman__4BAC3F29" FromRole="Tamanos" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Empleado_Id" Type="Int32" />
+          <Property Name="Cliente_Id" Type="Int32" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Usuario_Cliente" FromRole="Usuarios" ToRole="Clientes" />
+          <NavigationProperty Name="Empleados" Relationship="Self.FK_Usuario_Empleado" FromRole="Usuarios" ToRole="Empleados" />
+        </EntityType>
+        <Association Name="FK__Productos__Categ__4AB81AF0">
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="Id_Categoria" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="Categoria_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cuentas__Cliente__14270015">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Cliente_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservaci__Clien__08B54D69">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Reservaciones" Type="Self.Reservaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="Reservaciones">
+              <PropertyRef Name="Cliente_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Cliente_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cuentas__Emplead__160F4887">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Id_Empleado" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Empleado_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cuentas__Mesa_Id__1332DBDC">
+          <End Role="Mesas" Type="Self.Mesas" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesas">
+              <PropertyRef Name="ID_Mesa" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Mesa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cuentas__Reserva__151B244E">
+          <End Role="Reservaciones" Type="Self.Reservaciones" Multiplicity="0..1" />
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservaciones">
+              <PropertyRef Name="Id_Reservacion" />
+            </Principal>
+            <Dependent Role="Cuentas">
+              <PropertyRef Name="Reservacion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalles___Venta__1F98B2C1">
+          <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="0..1" />
+          <End Role="Detalles_Cuentas" Type="Self.Detalles_Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cuentas">
+              <PropertyRef Name="Id_Cuenta" />
+            </Principal>
+            <Dependent Role="Detalles_Cuentas">
+              <PropertyRef Name="Venta_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalles___Produ__1EA48E88">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Detalles_Cuentas" Type="Self.Detalles_Cuentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="ID_Producto" />
+            </Principal>
+            <Dependent Role="Detalles_Cuentas">
+              <PropertyRef Name="Producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__Rol_I__59063A47">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id_Rol" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="Rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Empleado">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Id_Empleado" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Empleado_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservaci__Mesa___07C12930">
+          <End Role="Mesas" Type="Self.Mesas" Multiplicity="0..1" />
+          <End Role="Reservaciones" Type="Self.Reservaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesas">
+              <PropertyRef Name="ID_Mesa" />
+            </Principal>
+            <Dependent Role="Reservaciones">
+              <PropertyRef Name="Mesa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Taman__4BAC3F29">
+          <End Role="Tamanos" Type="Self.Tamanos" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tamanos">
+              <PropertyRef Name="Id_Tamano" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="Tamano_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VentaCuernoEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Cuentas" EntityType="Self.Cuentas" />
+          <EntitySet Name="Detalles_Cuentas" EntityType="Self.Detalles_Cuentas" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+          <EntitySet Name="Mesas" EntityType="Self.Mesas" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" />
+          <EntitySet Name="Reservaciones" EntityType="Self.Reservaciones" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Tamanos" EntityType="Self.Tamanos" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK__Productos__Categ__4AB81AF0" Association="Self.FK__Productos__Categ__4AB81AF0">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cuentas__Cliente__14270015" Association="Self.FK__Cuentas__Cliente__14270015">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservaci__Clien__08B54D69" Association="Self.FK__Reservaci__Clien__08B54D69">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Cliente" Association="Self.FK_Usuario_Cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cuentas__Emplead__160F4887" Association="Self.FK__Cuentas__Emplead__160F4887">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cuentas__Mesa_Id__1332DBDC" Association="Self.FK__Cuentas__Mesa_Id__1332DBDC">
+            <End Role="Mesas" EntitySet="Mesas" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cuentas__Reserva__151B244E" Association="Self.FK__Cuentas__Reserva__151B244E">
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+            <End Role="Cuentas" EntitySet="Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalles___Venta__1F98B2C1" Association="Self.FK__Detalles___Venta__1F98B2C1">
+            <End Role="Cuentas" EntitySet="Cuentas" />
+            <End Role="Detalles_Cuentas" EntitySet="Detalles_Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalles___Produ__1EA48E88" Association="Self.FK__Detalles___Produ__1EA48E88">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Detalles_Cuentas" EntitySet="Detalles_Cuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__Rol_I__59063A47" Association="Self.FK__Empleados__Rol_I__59063A47">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Empleado" Association="Self.FK_Usuario_Empleado">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservaci__Mesa___07C12930" Association="Self.FK__Reservaci__Mesa___07C12930">
+            <End Role="Mesas" EntitySet="Mesas" />
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Taman__4BAC3F29" Association="Self.FK__Productos__Taman__4BAC3F29">
+            <End Role="Tamanos" EntitySet="Tamanos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VentaCuernoModelStoreContainer" CdmEntityContainer="VentaCuernoEntities1">
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Categorias">
+              <MappingFragment StoreEntitySet="Categorias">
+                <ScalarProperty Name="Id_Categoria" ColumnName="Id_Categoria" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+                <ScalarProperty Name="Nombre_Cliente" ColumnName="Nombre_Cliente" />
+                <ScalarProperty Name="Apeido_P_Cliente" ColumnName="Apeido_P_Cliente" />
+                <ScalarProperty Name="Apeido_M_Cliente" ColumnName="Apeido_M_Cliente" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cuentas">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Cuentas">
+              <MappingFragment StoreEntitySet="Cuentas">
+                <ScalarProperty Name="Id_Cuenta" ColumnName="Id_Cuenta" />
+                <ScalarProperty Name="Mesa_Id" ColumnName="Mesa_Id" />
+                <ScalarProperty Name="Cliente_Id" ColumnName="Cliente_Id" />
+                <ScalarProperty Name="Reservacion_Id" ColumnName="Reservacion_Id" />
+                <ScalarProperty Name="Empleado_Id" ColumnName="Empleado_Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Es_Reservacion" ColumnName="Es_Reservacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalles_Cuentas">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Detalles_Cuentas">
+              <MappingFragment StoreEntitySet="Detalles_Cuentas">
+                <ScalarProperty Name="Id_Detalle_Cuenta" ColumnName="Id_Detalle_Cuenta" />
+                <ScalarProperty Name="Venta_Id" ColumnName="Venta_Id" />
+                <ScalarProperty Name="Producto_Id" ColumnName="Producto_Id" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Empleados">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+                <ScalarProperty Name="Nombre_Empleado" ColumnName="Nombre_Empleado" />
+                <ScalarProperty Name="Apeido_P_Empleado" ColumnName="Apeido_P_Empleado" />
+                <ScalarProperty Name="Apeido_M_Empleado" ColumnName="Apeido_M_Empleado" />
+                <ScalarProperty Name="Email_Empleado" ColumnName="Email_Empleado" />
+                <ScalarProperty Name="Telefono_Empleado" ColumnName="Telefono_Empleado" />
+                <ScalarProperty Name="Rol_Id" ColumnName="Rol_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mesas">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Mesas">
+              <MappingFragment StoreEntitySet="Mesas">
+                <ScalarProperty Name="ID_Mesa" ColumnName="ID_Mesa" />
+                <ScalarProperty Name="Codigo_Mesa" ColumnName="Codigo_Mesa" />
+                <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+                <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
+                <ScalarProperty Name="Descripcion_Producto" ColumnName="Descripcion_Producto" />
+                <ScalarProperty Name="Categoria_Id" ColumnName="Categoria_Id" />
+                <ScalarProperty Name="Tamano_Id" ColumnName="Tamano_Id" />
+                <ScalarProperty Name="Urlfoto_Producto" ColumnName="Urlfoto_Producto" />
+                <ScalarProperty Name="Precio_Producto" ColumnName="Precio_Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservaciones">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Reservaciones">
+              <MappingFragment StoreEntitySet="Reservaciones">
+                <ScalarProperty Name="Id_Reservacion" ColumnName="Id_Reservacion" />
+                <ScalarProperty Name="Mesa_Id" ColumnName="Mesa_Id" />
+                <ScalarProperty Name="Cliente_Id" ColumnName="Cliente_Id" />
+                <ScalarProperty Name="Fecha_Reservacion" ColumnName="Fecha_Reservacion" />
+                <ScalarProperty Name="Horario" ColumnName="Horario" />
+                <ScalarProperty Name="Num_Personas" ColumnName="Num_Personas" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Id_Rol" ColumnName="Id_Rol" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Pago" ColumnName="Pago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tamanos">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Tamanos">
+              <MappingFragment StoreEntitySet="Tamanos">
+                <ScalarProperty Name="Id_Tamano" ColumnName="Id_Tamano" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="VentaCuernoModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Empleado_Id" ColumnName="Empleado_Id" />
+                <ScalarProperty Name="Cliente_Id" ColumnName="Cliente_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

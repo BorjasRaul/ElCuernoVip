@@ -1,0 +1,66 @@
+﻿@model ElCuernoVip.Models.Reservaciones
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reservaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Reservacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Reservacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Horario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Horario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Num_Personas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num_Personas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.Nombre_Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.Nombre_Cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mesas.Codigo_Mesa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mesas.Codigo_Mesa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Reservacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

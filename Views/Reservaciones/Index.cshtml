@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ElCuernoVip.Models.Reservaciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Reservacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Horario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Num_Personas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.Nombre_Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mesas.Codigo_Mesa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Reservacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Horario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Num_Personas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clientes.Nombre_Cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mesas.Codigo_Mesa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Reservacion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Reservacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Reservacion })
+        </td>
+    </tr>
+}
+
+</table>
