@@ -62,7 +62,7 @@ namespace ElCuernoVip.Controllers
 
                 }
                 else {
-                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Reservacion creada ", NotificationType.warning);
+                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Reservacion creada ", NotificationType.success);
 
                 }
                 return RedirectToAction("Index");
@@ -100,7 +100,16 @@ namespace ElCuernoVip.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(reservaciones).State = EntityState.Modified;
-                db.SaveChanges();
+                if (db.SaveChanges() == 0)
+                {
+                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("Error", "Reservacion no Actualizado ", NotificationType.warning);
+
+                }
+                else {
+
+                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Reservacion Actualizada", NotificationType.success);
+
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.Cliente_Id = new SelectList(db.Clientes, "Id_Cliente", "Nombre_Cliente", reservaciones.Cliente_Id);
@@ -130,7 +139,16 @@ namespace ElCuernoVip.Controllers
         {
             Reservaciones reservaciones = db.Reservaciones.Find(id);
             db.Reservaciones.Remove(reservaciones);
-            db.SaveChanges();
+            if (db.SaveChanges() == 0)
+            {
+                TempData["sweetAlert"] = SweetAlert.Sweet_Alert("Error", "producto no Eliminado ", NotificationType.warning);
+
+            }
+            else {
+
+                TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Producto Eliminado ", NotificationType.success);
+
+            }
             return RedirectToAction("Index");
         }
 

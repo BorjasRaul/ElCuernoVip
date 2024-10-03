@@ -63,7 +63,7 @@ namespace ElCuernoVip.Controllers
                 }
                 else {
 
-                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "producto creado ", NotificationType.warning);
+                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "producto creado ", NotificationType.success);
 
                 }
                 return RedirectToAction("Index");
@@ -108,7 +108,7 @@ namespace ElCuernoVip.Controllers
                 }
                 else {
 
-                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "producto Actualizado", NotificationType.warning);
+                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "producto Actualizado", NotificationType.success);
 
                 }
 
@@ -148,7 +148,7 @@ namespace ElCuernoVip.Controllers
             }
             else {
 
-                TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "producto Eliminado ", NotificationType.warning);
+                TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "producto Eliminado ", NotificationType.success);
 
             }
             return RedirectToAction("Index");

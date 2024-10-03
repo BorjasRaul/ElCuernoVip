@@ -60,7 +60,7 @@ namespace ElCuernoVip.Controllers
                 }
                 else {
 
-                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Mesa creada", NotificationType.warning);
+                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Mesa creada", NotificationType.success);
 
                 }
                 return RedirectToAction("Index");
@@ -102,7 +102,7 @@ namespace ElCuernoVip.Controllers
                 }
                 else {
 
-                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Mesa Actualizada", NotificationType.warning);
+                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Mesa Actualizada", NotificationType.success);
 
                 }
                 return RedirectToAction("Index");
@@ -139,7 +139,7 @@ namespace ElCuernoVip.Controllers
             }
             else {
 
-                TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Mesa eliminada", NotificationType.warning);
+                TempData["sweetAlert"] = SweetAlert.Sweet_Alert("success", "Mesa eliminada", NotificationType.success);
 
             }
             return RedirectToAction("Index");

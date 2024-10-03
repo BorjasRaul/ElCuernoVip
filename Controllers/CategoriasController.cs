@@ -114,7 +114,7 @@ namespace ElCuernoVip.Controllers
 
                 }
                 else {
-                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("correcto", "Categoria Actualizada ", NotificationType.warning);
+                    TempData["sweetAlert"] = SweetAlert.Sweet_Alert("correcto", "Categoria Actualizada ", NotificationType.success);
 
 
                 }
